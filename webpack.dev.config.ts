@@ -54,6 +54,7 @@ const config: Configuration = {
     port: 4000,
     open: true,
     hot: true,
+    
   },
 };
 

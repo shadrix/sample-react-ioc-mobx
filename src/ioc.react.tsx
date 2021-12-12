@@ -1,5 +1,6 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext } from 'react';
 import { Container, interfaces } from 'inversify';
+import { useMemoOne } from 'use-memo-one';
 
 const InversifyContext = React.createContext<{ container: Container | null }>({ container: null });
 
@@ -20,5 +21,5 @@ export function useInjection<T>(identifier: interfaces.ServiceIdentifier<T>): T 
     if (!container) {
       throw new Error();
     }
-    return useMemo(() => container.get<T>(identifier), [container, identifier]);
+    return useMemoOne(() => container.get<T>(identifier), [container, identifier]);
   }
