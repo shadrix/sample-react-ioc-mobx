@@ -1,14 +1,14 @@
 import { injectable } from "inversify";
-import { makeObservable, observable } from "mobx";
+import { makeAutoObservable } from "mobx";
 
 @injectable()
 export class GlobalUserStore {
 
-    @observable public clickCount = 0;
-    @observable public totalApiCall = 0;
+    public clickCount = 0;
+    public totalApiCall = 0;
 
     constructor(   
     ) {
-        makeObservable(this);
+        makeAutoObservable(this);
     }
 }
